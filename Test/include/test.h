@@ -8,10 +8,10 @@ void test_thread_pool() {
 
     int res = 0;
 
-	auto result = pool.ReturnEnqueue([](int answer) { return answer; }, 42);
+	auto result = pool.ReturnSubmit([](int answer) { return answer; }, 2);
 
-    pool.ReturnEnqueue([](int* r) { *r = 2; }, &res);
+    pool.ReturnSubmit([](int* r) { *r = 2; }, &res);
 
-	std::cout << result.get() << std::endl;
+	std::cout << "result: " << result.get() << std::endl;
     std::cout << "res: " << res << std::endl;
 }

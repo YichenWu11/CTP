@@ -14,12 +14,9 @@ namespace Chen {
 
         // return std::future
         template<class F, class... Args>
-        auto ReturnEnqueue(F&& f, Args&&... args);
+        auto ReturnSubmit(F&& f, Args&&... args);
 
-        template<class F, class... Args>
-        void Enqueue(F&& f, Args&&... args);
-
-        void BasicEnqueue(fu2::unique_function<void()> task);
+        void BasicSubmit(fu2::unique_function<void()> task);
 
     private:
         std::vector<std::thread> workers;

@@ -22,7 +22,7 @@ ThreadPool::ThreadPool(size_t num) {
     }
 }
 
-void ThreadPool::BasicEnqueue(fu2::unique_function<void()> task) {
+void ThreadPool::BasicSubmit(fu2::unique_function<void()> task) {
     {
         std::lock_guard<std::mutex> lock(mutex_tasks);
 
